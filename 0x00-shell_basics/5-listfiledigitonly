@@ -1,0 +1,5 @@
+#!/bin/bash
+ls -l
+id
+ls -a
+5-listfilesdigitonly
