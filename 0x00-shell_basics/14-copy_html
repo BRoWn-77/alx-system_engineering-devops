@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Define the source and destination directories
+source_dir=$(pwd)
+destination_dir=$(dirname "$source_dir")
+
+# Copy HTML files if they are newer or don't exist in the parent directory
+for file in "$source_dir"/*.html; do
+    filename=$(basename "$file")
+    if [[ -f "$destination_dir/$filename" ]]; then
+        if [[ "$file" -nt "$destination_dir/$filename" ]]; then
+            echo "Copying $filename"
+            cp "$file" "$destination_dir"
+        else
+            echo "$filename already exists in parent directory and is up to date."
+        fi
+    else
+        echo "Copying $filename"
+        cp "$file" "$destination_dir"
+    fi
+done
+14-copy_html
