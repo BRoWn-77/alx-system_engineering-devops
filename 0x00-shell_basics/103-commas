@@ -1,3 +1,2 @@
 #!/bin/bash
-ls -ap1 | sed -e '/^..$/d' | sort -d | tr '\n' ',' | sed 's/,$/\n/'
-103-commas
+ls -amvp
